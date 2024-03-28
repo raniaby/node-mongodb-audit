@@ -1,0 +1,38 @@
+{
+  "name": "node-mongodb-audit",
+  "version": "0.0.0",
+  "description": "Track changes on mongo databases",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "postinstall": "node dist/createAuditConfigFile.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raniaby/node-mongodb-audit.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "events",
+    "history",
+    "audit",
+    "mongodb",
+    "nodejs"
+  ],
+  "author": "rania ben younes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raniaby/node-mongodb-audit/issues"
+  },
+  "homepage": "https://github.com/raniaby/node-mongodb-audit#readme",
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "typescript": "^5.4.3"
+  },
+  "dependencies": {
+    "mongodb": "^6.5.0"
+  }
+}
