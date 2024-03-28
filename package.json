@@ -2,7 +2,7 @@
   "name": "node-mongodb-audit",
   "version": "0.0.0",
   "description": "Track changes on mongo databases",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",

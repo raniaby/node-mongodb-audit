@@ -20,7 +20,7 @@ async function loadDBSecret(){
   try {
     const jsonContent = await fs.readFile('auditConfig.json', 'utf8');
     const parsedData = JSON.parse(jsonContent);
-    const DBSecret = parsedData.DBSecret || '';
+    const DBSecret = parsedData.DBString || '';
     return DBSecret; 
   } catch (error) {
     console.error('Error loading DB credentials:', error);
@@ -30,6 +30,7 @@ async function loadDBSecret(){
 
 export async function initConnection(){
     const connectionString= await loadDBSecret();
+    console.log("connectionString", connectionString);
     const client= new MongoClient(connectionString);
     const DBName= new URL(connectionString).pathname.slice(1);
     database = client.db(DBName);
@@ -60,8 +61,7 @@ export async function setupDatabaseAudit(
         throw new Error('error connecting to database')
       }
       changeStream.on('change', async (change: any)=> {
-
-        if(!exceptions.includes(change.ns.coll)){
+        if(change.ns.coll !== 'auditlog'){
           const newValues= change.fullDocument;
           const oldValues= change.fullDocumentBeforeChange;
           const eventType= change.operationType;
@@ -76,7 +76,7 @@ export async function setupDatabaseAudit(
            userId,
            username
           }
-       
+
           const auditLogCollection= database!.collection('auditlog');
           await auditLogCollection.insertOne(doc);
     
