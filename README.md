@@ -16,22 +16,13 @@ Upon installation, a configuration file will be generated in your project direct
 Importing the Package:
 
 ```js
-import { initConnection, setupDatabaseAudit } from ('node-mongodb-audit'); 
+import { initConnection } from ('node-mongodb-audit'); 
 ```
 
 ## Setting up Database Connection
 
 ```js
 initConnection();
-```
-
-## Setting up Database Audit
-
-```js
-const userId = 1; // Provide the user ID
-const username = 'admin'; // Provide the username
-
-setupDatabaseAudit(userId, username);
 ```
 
 ## Configuration
@@ -41,6 +32,7 @@ You can configure the exceptions for auditing by editing the exceptions.json fil
 Example exceptions.json
 ```json
 {
-  "exceptions": ["auditlog"]
+  "exceptions": ["auditlog"],
+  "DBString": ""
 }
 ```
