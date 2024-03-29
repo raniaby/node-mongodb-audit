@@ -1,3 +1,6 @@
+# Note
+this package only works for replica set and sharded cluster
+
 # Database Audit Package
 
 This package provides functionality for auditing database changes in MongoDB.
