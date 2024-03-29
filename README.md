@@ -19,7 +19,7 @@ Upon installation, a configuration file will be generated in your project direct
 Importing the Package:
 
 ```js
-import { initConnection } from ('node-mongodb-audit'); 
+import { initConnection } from 'node-mongodb-audit'; 
 ```
 
 ## Setting up Database Connection
